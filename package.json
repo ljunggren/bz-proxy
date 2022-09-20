@@ -1,0 +1,22 @@
+{
+  "name": "bz-db-oracle",
+  "version": "1.0.0",
+  "description": "Connect to an Oracle database and test in sql.",
+  "main": "server.js",
+  "keywords": [
+    "Oracle",
+    "Boozang",
+    "Express"
+  ],
+  "author": "Wensheng Li",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "latest",
+    "connect-flash": "latest",
+    "ejs": "^3.1.6",
+    "express": "latest",
+    "method-override": "latest",
+    "oracledb": "^5.5.0"
+  }
+}
