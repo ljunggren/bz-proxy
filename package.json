@@ -16,7 +16,6 @@
     "connect-flash": "latest",
     "ejs": "^3.1.6",
     "express": "latest",
-    "method-override": "latest",
-    "oracledb": "^5.5.0"
+    "method-override": "latest"
   }
 }
