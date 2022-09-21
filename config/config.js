@@ -6,6 +6,5 @@
 
 // Set the 'production' environment configuration object
 module.exports = {
-  PORT:8080,
-  ORACLE_LIB:"C:\\oracle\\instantclient_21_6"
+  PORT:8080
 };

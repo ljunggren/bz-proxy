@@ -1,3 +1,4 @@
+/*
 'use strict';
 process.env.ORA_SDTZ = 'UTC';
 
@@ -57,3 +58,4 @@ exports.api={
     }    
   }
 };
+*/
