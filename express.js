@@ -37,7 +37,7 @@ module.exports = function() {
 
   // Load the routing files
   require('./serverApp/routes/apiRoutes.js')(app);
-  require('./serverApp/routes/oracleRoutes.js')(app);
+  // require('./serverApp/routes/oracleRoutes.js')(app);
   require('./serverApp/routes/indexRoutes.js')(app);
   app.use(express.static('./public'));
 
