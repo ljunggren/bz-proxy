@@ -21,6 +21,8 @@
           data:JSON.stringify(v)
         }).done(function(d){
           document.getElementById("result").value=JSON.stringify(d,0,2)
+        }).fail(function(d){
+          document.getElementById("result").value=JSON.stringify(d.responseJSON,0,2)
         })
 
       }

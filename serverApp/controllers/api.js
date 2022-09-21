@@ -7,9 +7,13 @@ exports.api={
     let d=req.body
 
     axios(d).then(function (response) {
-        res.send(JSON.stringify(response.data));
+        res.send({
+          status:response.status,
+          data:response.data
+        });
     }).catch(function (error) {
-        console.log(error);
+        console.log(error.message);
+        res.status(400).send({status:400,message:error.message})
     });
 
   }
