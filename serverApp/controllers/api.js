@@ -5,7 +5,7 @@ const axios = require('axios');
 exports.api={
   route:async function(req,res){
     let d=req.body
-
+    console.log(d)
     axios(d).then(function (response) {
       res.send({
         status:response.status,
