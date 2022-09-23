@@ -7,10 +7,14 @@ exports.api={
     let d=req.body
 
     axios(d).then(function (response) {
-        res.send(response);
+      res.send({
+        status:response.status,
+        data:response.data
+      });
+      console.log(response)
     }).catch(function (error) {
-        console.log(error.message);
-        res.status(400).send({status:400,message:error.message})
+      console.log(error.message);
+      res.status(400).send({status:400,message:error.message})
     });
 
   }
