@@ -13,8 +13,10 @@ exports.api={
       console.log(d)
       console.log("Response error:")
       console.log(error.message);
-      console.log(error)
-      res.status(400).send({status:400,message:error.message})
+      res.headers=error.response.headers
+      res.statusText=error.response.statusText
+
+      res.status(error.response.status).send(error.response.data)
     });
 
   }
