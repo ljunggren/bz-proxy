@@ -9,7 +9,8 @@ exports.api={
     axios(d).then(function (response) {
       res.send({
         status:response.status,
-        data:response.data
+        data:response.data,
+        headers:response.headers
       });
       console.log(response)
     }).catch(function (error) {
