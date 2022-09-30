@@ -13,10 +13,15 @@ exports.api={
       console.log(d)
       console.log("Response error:")
       console.log(error.message);
-      res.headers=error.response.headers
-      res.statusText=error.response.statusText
+      if(error.response){
+        res.headers=error.response.headers
+        res.statusText=error.response.statusText
+        res.status(error.response.status).send(error.response.data)
+      }else{
+        console.log(error);
+        res.status(error.status||500).send({message:error.message})
+      }
 
-      res.status(error.response.status).send(error.response.data)
     });
 
   }
