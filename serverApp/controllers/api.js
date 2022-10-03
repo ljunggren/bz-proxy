@@ -1,7 +1,15 @@
 'use strict';
 process.env.ORA_SDTZ = 'UTC';
 const axios = require('axios');
-
+const https=require("https")
+try{
+  const httpsAgent = new https.Agent({
+    rejectUnauthorized: false,
+  })
+  axios.defaults.httpsAgent = httpsAgent
+}catch(ex){
+  console.log(ex.message)
+}
 exports.api={
   route:async function(req,res){
     let d=req.body
