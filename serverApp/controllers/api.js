@@ -13,6 +13,8 @@ try{
 exports.api={
   route:async function(req,res){
     let d=req.body
+    prepareData(d)
+    
     axios(d).then(function (response) {
       res.headers=response.headers
       res.status(response.status).send(response.data);
@@ -34,3 +36,30 @@ exports.api={
 
   }
 };
+
+function prepareData(d){
+  console.log("Get request:")
+  console.log(d)
+  console.log("\n\n")
+  let h=d.headers
+  if(h&&h["Content-Type"]&&h["Content-Type"].includes("form")){
+    var v=d.data
+    var ds=[]
+
+    _getDataList(v,"",ds)
+    d.data=ds.join("&")
+    console.log("Re-format data body from json to form:")
+    console.log(d.data)
+  }
+
+
+  function _getDataList(v,ks,ds){
+    if(v&&(v.constructor==Object||v.constructor==Array)){
+      for(let k in v){
+        _getDataList(v[k],ks?ks+"["+k+"]":k,ds)
+      }
+    }else{
+      ds.push(encodeURIComponent(ks)+"="+encodeURIComponent(v))
+    }
+  }
+}
